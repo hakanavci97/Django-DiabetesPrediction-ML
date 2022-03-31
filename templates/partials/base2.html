@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title></title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css" />
+  <script src="{% static 'css/bootstrap.min.js' %}"></script>
+  <script src="{% static 'css/jquery.min.js' %}"></script>
+  <link  href="{% static 'css/base2.css' %}" rel="stylesheet" type="text/css" ></link>
+</head>
+<body class="bg">
+  {% include 'partials/nav.html' %}
+ <!-- <video id="backgroundVideo" autoplay="true" loop muted>
+    <source src="{% static '/video/' %}" type="video/mp4">
+  </video>-->
+  <div class="container" >
+    <div class="row justify-content-center align-items-center" style="height: 90vh">
+      <div class="col-4">
+        <div class="card">
+          <div class="card-body">
+            <form action="result" method="GET">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="GlucoseText"><strong>Glukoz Değeri</strong></label>
+                <input type="text" class="form-control" id="GlucoseText" aria-describedby="emailHelp" name="glucose" required/>
+              </div>
+              <div class="form-group">
+                <label for="BMIText"><strong>Vücut Kitle İndex'si</strong></label>
+                <input type="text" class="form-control" id="BMIText" name="bmi" required/>
+              </div>
+              <div class="form-group">
+                <label for="AgeText"><strong>Yaşı</strong></label>
+                <input type="text" class="form-control" id="AgeText" name="age"  required/>
+              </div>
+              <div style="text-align:center">
+                <button type="submit" class=" btn btn-outline-primary my-2 my-sm-0" value="getPredictions">
+                  Hesapla
+                </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
